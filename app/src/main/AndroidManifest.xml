@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Social_Goal_Sharing"
         tools:targetApi="31">
         <activity
-            android:name=".Sign_up"
+            android:name=".ui.main.view.sign_in_up.Sign_up"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

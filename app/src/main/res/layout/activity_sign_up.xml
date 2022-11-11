@@ -222,7 +222,7 @@
                 android:textColorHint="#757575" />
         </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnlogin"
+        android:id="@+id/btnsignup"
         android:layout_width="290dp"
         android:layout_height="48dp"
         android:layout_marginTop="30dp"

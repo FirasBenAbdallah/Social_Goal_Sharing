@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Social_Goal_Sharing</string>
+    <string name="app_name">DO it !</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -16,7 +16,6 @@
     <string name="do_it">do it !</string>
     <string name="remember_me">Remember Me</string>
     <string name="dont_have_an_account">Dont have an Account?</string>
-    <string name="signup">SignUp</string>
     <string name="nom">Last name</string>
     <string name="prenom">First name</string>
     <string name="date">Birth Date</string>

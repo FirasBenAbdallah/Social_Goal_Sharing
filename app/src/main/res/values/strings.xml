@@ -17,4 +17,11 @@
     <string name="remember_me">Remember Me</string>
     <string name="dont_have_an_account">Dont have an Account?</string>
     <string name="signup">SignUp</string>
+    <string name="nom">Last name</string>
+    <string name="prenom">First name</string>
+    <string name="date">Birth Date</string>
+    <string name="adresse">Address</string>
+    <string name="confpass">Confirm password</string>
+    <string name="signup">Sign Up</string>
+
 </resources>

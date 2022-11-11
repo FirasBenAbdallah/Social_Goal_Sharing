@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.social_goal_sharing.R
-import com.example.social_goal_sharing.ui.main.view.MainActivity
-
 class Sign_up : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

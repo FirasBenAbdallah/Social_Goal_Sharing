@@ -20,7 +20,11 @@
     <string name="prenom">First name</string>
     <string name="date">Birth Date</string>
     <string name="adresse">Address</string>
-    <string name="confpass">Confirm password</string>
+    <string name="confpass">Confirm Password</string>
     <string name="signup">Sign Up</string>
+    <string name="confirm">Confirm</string>
+    <string name="change_password">Change Your Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="new_password">New Password</string>
 
 </resources>

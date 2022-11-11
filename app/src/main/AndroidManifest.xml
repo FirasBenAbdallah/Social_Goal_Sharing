@@ -25,6 +25,20 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".ui.main.view.sign_in_up.ForgotPassDialog"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DialogForgetPassword"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.main.view.sign_in_up.Sign_up"
             android:exported="false">
             <meta-data

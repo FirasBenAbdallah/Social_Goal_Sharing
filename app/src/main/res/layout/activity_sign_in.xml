@@ -12,7 +12,6 @@
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/sacramento"
         android:text="@string/do_it"
@@ -48,9 +47,8 @@
             android:inputType="textEmailAddress"
             android:textColorHighlight="#796221"
             android:textColorHint="#757575" />
-
-
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputPassword"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -62,6 +60,7 @@
         android:textColorHint="#796221"
         android:hint="@string/password"
         app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        app:endIconMode="password_toggle"
         app:startIconTint="#796221"
         app:boxCornerRadiusBottomEnd="25dp"
         app:boxCornerRadiusTopEnd="25dp"
@@ -71,12 +70,12 @@
         app:layout_constraintTop_toBottomOf="@+id/inputEmail">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
             android:textColorHighlight="#796221"
             android:textColorHint="#757575" />
-
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -148,6 +147,5 @@
             android:textColor="@color/red" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

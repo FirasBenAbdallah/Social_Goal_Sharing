@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.ui.main.view.MainActivity
+import com.example.social_goal_sharing.ui.main.view.sign_in_up.Sign_in
 
 class SplashScreen : AppCompatActivity() {
     private val SPLASH_TIME_OUT: Long = 2000 //3 sec
@@ -15,7 +16,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, Sign_in::class.java))
             finish()
         }, SPLASH_TIME_OUT)
     }

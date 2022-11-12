@@ -7,11 +7,12 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/do_removebg_preview"
-        android:label="@string/app_name"
+        android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Social_Goal_Sharing"
         tools:targetApi="31">
+
         <activity
             android:name=".ui.main.view.splash_screen.SplashScreen"
             android:exported="true">
@@ -24,6 +25,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".ui.main.view.sign_in_up.ForgotPassDialog"
             android:exported="false">
@@ -31,13 +33,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".DialogForgetPassword"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name=".ui.main.view.sign_in_up.Sign_up"
             android:exported="false">
@@ -45,6 +41,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".ui.main.view.MainActivity"
             android:exported="false">
@@ -52,6 +49,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".ui.main.view.sign_in_up.Sign_in"
             android:exported="true">

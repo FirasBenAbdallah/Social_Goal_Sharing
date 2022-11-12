@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.view.MainActivity">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/bottomnavigationtoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Gold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/profile"
+        app:navigationIcon="@drawable/ic_baseline_dehaze_24"
+        app:navigationContentDescription=""
+
+        />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnsignin"
         android:layout_width="290dp"
@@ -17,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/bottomnavigationtoolbar" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnsignup1"
@@ -33,3 +47,10 @@
         app:layout_constraintTop_toBottomOf="@+id/btnsignin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_search_24"
+                android:layout_gravity="center"
+                /-->

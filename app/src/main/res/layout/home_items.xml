@@ -51,13 +51,13 @@
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:layout_below="@+id/cardV"
-        android:id="@+id/imgpub"
+        android:id="@+id/imgPub"
         android:background="@color/Gold"/>
     <LinearLayout
         android:id="@+id/linearPub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imgpub"
+        android:layout_below="@id/imgPub"
         android:orientation="horizontal">
 
         <ImageButton

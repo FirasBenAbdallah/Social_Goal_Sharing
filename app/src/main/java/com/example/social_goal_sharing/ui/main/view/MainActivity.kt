@@ -16,7 +16,7 @@ import com.example.social_goal_sharing.ui.main.view.sign_in_up.Sign_in
 import com.example.social_goal_sharing.ui.main.view.toolbar_fragments.*
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
+
     private lateinit var binding: ActivityMainBinding
     private fun replaceFragment(fragment: Fragment){
         val fragmentManager = supportFragmentManager
@@ -25,58 +25,57 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commitNow()
     }
 
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(Home())
-
+        val toolbar = findViewById<Toolbar>(R.id.bottomnavigationtoolbar1)
+        setSupportActionBar(toolbar)
 //        setContentView(R.layout.activity_main)
-        binding.bottomnavigationtoolbar.setOnItemSelectedListener {
+
+        binding.bottomnavigationtoolbar2.setOnItemSelectedListener {
 
             when(it.itemId){
-
                 R.id.homeIcon -> replaceFragment(Home())
                 R.id.profilIcon -> replaceFragment(profile())
                 R.id.plusIcon -> replaceFragment(Add())
                 R.id.searchIcon -> replaceFragment(LookFor())
                 R.id.messageIcon -> replaceFragment(Discussion())
-                else -> {
-
-                }
-
+                else -> {}
             }
             true
         }
 
-        val btnsignup = findViewById<Button>(R.id.btnsignup1)
-        val btnsignin = findViewById<Button>(R.id.btnsignin)
+        //val btnsignup = findViewById<Button>(R.id.btnsignup1)
+        //val btnsignin = findViewById<Button>(R.id.btnsignin)
 //        val toolBar = findViewById<Toolbar>(R.id.bottomnavigationtoolbar)
 
 //        setSupportActionBar(toolBar)
 
 
-        btnsignup.setOnClickListener {
+        /*btnsignup.setOnClickListener {
             startActivity(Intent(this, Sign_up::class.java))
         }
         btnsignin.setOnClickListener{
             startActivity(Intent(this, Sign_in::class.java))
-        }
+        }*/
 
     }
 
-
-   /* override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.profile, menu)
         return super.onCreateOptionsMenu(menu)
     }
-*/
-    /*override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.disconnectIcon -> {
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.logoutIcon -> {
             startActivity(Intent(this, Sign_in::class.java))
             finishAffinity()
             true
         }
-        else -> super.onOptionsItemSelected(item)
-    }*/
+        else -> {false}
+    }
 }

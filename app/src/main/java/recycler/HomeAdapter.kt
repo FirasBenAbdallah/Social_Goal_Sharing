@@ -20,7 +20,7 @@ class HomeAdapter(private val accList : ArrayList<Acc>): RecyclerView.Adapter<re
         val currentItem =accList[position]
         holder.profileIcon.setImageResource(currentItem.profileIcon)
         holder.imgpub.setImageResource(currentItem.imgPub)
-        holder.linear.layout(currentItem.linear)
+        //holder.linear.layout(currentItem.linear)
     }
 
     override fun getItemCount(): Int {

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.example.social_goal_sharing.R
@@ -32,10 +33,27 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(Home())
-        val toolbar = findViewById<Toolbar>(R.id.bottomnavigationtoolbar1)
-        setSupportActionBar(toolbar)
+        //val toolbar = findViewById<Toolbar>(R.id.bottomnavigationtoolbar1)
+        //setSupportActionBar(toolbar)
+
 //        setContentView(R.layout.activity_main)
 
+        val btnlogout = findViewById<ImageButton>(R.id.logoutIcon)
+        btnlogout.setOnClickListener(){
+            startActivity(Intent(this, Sign_in::class.java))
+            finishAffinity()
+        }
+        binding.bottomnavigationtoolbar1.setOnItemSelectedListener {
+            when(it.itemId) {
+                R.id.logoutIcon -> {
+                    startActivity(Intent(this, Sign_in::class.java))
+                    finishAffinity()
+
+                }
+                else -> {}
+            }
+            true
+        }
         binding.bottomnavigationtoolbar2.setOnItemSelectedListener {
 
             when(it.itemId){
@@ -65,7 +83,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.profile, menu)
         return super.onCreateOptionsMenu(menu)
     }
@@ -77,5 +95,5 @@ class MainActivity : AppCompatActivity() {
             true
         }
         else -> {false}
-    }
+    }*/
 }

@@ -32,20 +32,23 @@
             android:layout_height="match_parent"
             android:gravity="right"
             >
+
             <ImageButton
                 android:id="@+id/logoutIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icons8_logout_24"
                 android:backgroundTint="@color/white"
-                />
+                android:contentDescription="@string/Log_out"
+                android:minHeight="48dp"
+                android:src="@drawable/icons8_logout_24" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_dehaze_24"
                 android:backgroundTint="@color/white"
-                />
+                android:contentDescription="@string/Settings"
+                android:minHeight="48dp"
+                android:src="@drawable/ic_baseline_dehaze_24" />
         </LinearLayout>
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

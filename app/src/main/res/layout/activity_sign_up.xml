@@ -46,6 +46,7 @@
             app:startIconTint="@color/Gold">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputPrenomUpET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -101,6 +102,7 @@
             app:startIconTint="@color/Gold">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEmailUpET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -183,6 +185,7 @@
             app:endIconMode="password_toggle">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputPasswordET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"

@@ -40,15 +40,15 @@ class Sign_in : AppCompatActivity() {
         forgotpassword.setOnClickListener(){
             val view: View = getLayoutInflater().inflate(R.layout.activity_forgot_pass_dialog, null)
             val dialogBuilder = MaterialAlertDialogBuilder(this)
-
-            dialogBuilder
-                .setView(view)
-                .show()
+            if (findViewById<TextInputEditText>(R.id.inputEmailET).text.toString().isNotEmpty()){
+                dialogBuilder
+                    .setView(view)
+                    .show()
+            }
         }
     }
     private fun login(){
         val apiInterface = ApiInterface.create()
-
         val emailEdit = findViewById<TextInputEditText>(R.id.inputEmailET)
         val passwordEdit = findViewById<TextInputEditText>(R.id.Password)
 

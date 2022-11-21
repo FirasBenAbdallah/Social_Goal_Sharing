@@ -1,5 +1,6 @@
 package com.example.social_goal_sharing.ui.main.view.sign_in_up
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -26,32 +27,44 @@ class Sign_up : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("CutPasteId")
     private fun inscription() {
         val apiInterface = ApiInterface.create()
 
-        val nameEdit = findViewById<TextInputEditText>(R.id.inputPrenomUpET)
+        val fnameEdit = findViewById<TextInputEditText>(R.id.inputPrenomUpET)
+        val lnameEdit = findViewById<TextInputEditText>(R.id.inputenomUpET)
         val emailEdit = findViewById<TextInputEditText>(R.id.inputEmailUpET)
+        val birthEdit = findViewById<TextInputEditText>(R.id.inputBirthUpET)
+        val addressEdit = findViewById<TextInputEditText>(R.id.inputAddressUpET)
         val passwordEdit = findViewById<TextInputEditText>(R.id.inputPasswordET)
         val passwordconf = findViewById<TextInputEditText>(R.id.inputPasswordConfET)
 
-        val passwordconfst = passwordconf.text.toString()
-        val passwordEditst = passwordEdit.text.toString()
-        val nameEditst = nameEdit.text.toString()
+        val fnameEditst = fnameEdit.text.toString()
+        val lnameEditst = lnameEdit.text.toString()
         val emailEditst = emailEdit.text.toString()
+        val birthEditst = birthEdit.text.toString()
+        val addressEditst = addressEdit.text.toString()
+        val passwordEditst = passwordEdit.text.toString()
+        val passwordconfst = passwordconf.text.toString()
 
         val map = HashMap<String, String>()
-        map["name"] = nameEditst
+        map["firstname"] = fnameEditst
+        map["lastname"] = lnameEditst
         map["email"] = emailEditst
+        map["birthdate"] = birthEditst
+        map["address"] = addressEditst
         map["password"] = passwordEditst
-        if (passwordEditst.isNotEmpty() && nameEditst.isNotEmpty() && emailEditst.isNotEmpty()) {
+        map["confpassword"] = passwordconfst
+
+        if (fnameEditst.isNotEmpty() && lnameEditst.isNotEmpty() && emailEditst.isNotEmpty() && birthEditst.isNotEmpty() && addressEditst.isNotEmpty() && passwordEditst.isNotEmpty()) {
             if (passwordconfst == passwordEditst){
-                apiInterface.executeSignup(map)?.enqueue(object : Callback<Void?> {
+                apiInterface.executeSignup(map).enqueue(object : Callback<Void> {
 
                     override fun onResponse(
-                        call: Call<Void?>, response:
-                        Response<Void?>
+                        call: Call<Void>, response:
+                        Response<Void>
                     ) {
-                        if (response.code() == 200) {
+                        if (response.code() == 201) {
                             Toast.makeText(
                                 this@Sign_up,
                                 "Signed up successfully", Toast.LENGTH_LONG
@@ -65,7 +78,7 @@ class Sign_up : AppCompatActivity() {
                         }
                     }
 
-                    override fun onFailure(call: Call<Void?>, t: Throwable) {
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
                         Toast.makeText(
                             this@Sign_up, t.message,
                             Toast.LENGTH_LONG

@@ -75,6 +75,7 @@
             app:startIconTint="@color/Gold">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputenomUpET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -130,6 +131,7 @@
             app:startIconTint="@color/Gold">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputBirthUpET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
@@ -157,6 +159,7 @@
             app:startIconTint="@color/Gold">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputAddressUpET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"

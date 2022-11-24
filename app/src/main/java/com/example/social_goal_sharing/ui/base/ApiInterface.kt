@@ -7,6 +7,7 @@ import retrofit2.http.Body
 import retrofit2.http.PATCH
 import retrofit2.http.POST
 
+
 interface ApiInterface {
     @POST("login")
     fun meth1(@Body map: HashMap<String, String>): Call<Login>
@@ -15,7 +16,7 @@ interface ApiInterface {
     /*@PATCH("/:email")
     fun changePass(@Body map: HashMap<String, String>): Call<Void>*/
     companion object {
-        var BASE_URL = "http://172.16.7.239:3001/user/"
+        var BASE_URL = "http://192.168.1.170:3002/user/"
         fun create() : ApiInterface {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())

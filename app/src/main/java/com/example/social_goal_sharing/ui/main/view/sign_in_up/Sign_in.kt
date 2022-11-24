@@ -82,7 +82,7 @@ class Sign_in : AppCompatActivity() {
 
             override fun onFailure(call: Call<Login>, t: Throwable) {
                 Toast.makeText(
-                    this@Sign_in, t.message,
+                    this@Sign_in, "probleme de cnx",
                     Toast.LENGTH_LONG
                 ).show()
             }

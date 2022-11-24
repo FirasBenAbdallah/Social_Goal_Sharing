@@ -30,9 +30,12 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        replaceFragment(Home())
+
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(Home())
+
         //val toolbar = findViewById<Toolbar>(R.id.bottomnavigationtoolbar1)
         //setSupportActionBar(toolbar)
 

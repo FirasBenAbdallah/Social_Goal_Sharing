@@ -18,6 +18,8 @@ lateinit var recyclerView: RecyclerView
 lateinit var homeitemsList : ArrayList<Acc>*/
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

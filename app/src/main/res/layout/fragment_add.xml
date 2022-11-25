@@ -71,7 +71,7 @@
                 android:id="@+id/inputLieu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:inputType="textPostalAddress"
                 android:textColorHighlight="#796221"
                 android:textColorHint="#757575" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -98,9 +98,51 @@
             android:id="@+id/dateEv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
+            android:inputType="datetime"
             android:textColorHighlight="@color/Gold" />
         </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/desc"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:hint="Description"
+            android:textColorHint="#796221"
+            app:startIconTint="#796221"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nomev">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text|textLongMessage"
+                android:textColorHighlight="#796221"
+                android:textColorHint="#757575" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddEvent"
+            android:layout_width="290dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:text="Start Event"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/Gold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/desc" />
 
 
 

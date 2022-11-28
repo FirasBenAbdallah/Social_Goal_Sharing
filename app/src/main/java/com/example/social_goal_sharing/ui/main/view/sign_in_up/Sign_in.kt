@@ -11,6 +11,7 @@ import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.ui.base.ApiInterface
 import com.example.social_goal_sharing.ui.base.Login
 import com.example.social_goal_sharing.ui.main.view.MainActivity
+import com.example.social_goal_sharing.ui.main.view.toolbar_fragments.Home
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
@@ -30,7 +31,8 @@ class Sign_in : AppCompatActivity() {
         val btnlogin = findViewById<Button>(R.id.btnlogin)
 
         btnlogin.setOnClickListener(){
-            login()
+           //login()
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
         textviewsignup.setOnClickListener(){
@@ -47,7 +49,7 @@ class Sign_in : AppCompatActivity() {
             }
         }
     }
-    private fun login(){
+    /*private fun login(){
         val apiInterface = ApiInterface.create()
         val emailEdit = findViewById<TextInputEditText>(R.id.inputEmailET)
         val passwordEdit = findViewById<TextInputEditText>(R.id.Password)
@@ -87,5 +89,5 @@ class Sign_in : AppCompatActivity() {
                 ).show()
             }
         })
-    }
+    }*/
 }

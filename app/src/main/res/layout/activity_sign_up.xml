@@ -12,26 +12,34 @@
         android:id="@+id/doitup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/sacramento"
         android:text="@string/do_it"
         android:textColor="@color/Gold"
         android:textSize="60sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintEnd_toStartOf="@+id/pdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/pdp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/ic_baseline_account_circle_24"
+        app:layout_constraintStart_toEndOf="@+id/doitup"
+        app:layout_constraintTop_toTopOf="parent" />
 
-
-        <com.google.android.material.textfield.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputPrenomUp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="10dp"
+
             android:layout_marginEnd="32dp"
             android:hint="@string/prenom"
             android:textColorHint="@color/Gold"
@@ -41,17 +49,17 @@
             app:boxCornerRadiusTopStart="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/doitup"
+            app:layout_constraintTop_toBottomOf="@+id/pdp"
             app:startIconDrawable="@drawable/ic_baseline_account"
             app:startIconTint="@color/Gold">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputPrenomUpET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:textColorHighlight="@color/Gold"/>
-        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputPrenomUpET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:textColorHighlight="@color/Gold" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -232,9 +240,9 @@
         android:text="@string/signup"
         android:textColor="@color/white"
         app:backgroundTint="@color/Gold"
-        app:layout_constraintEnd_toEndOf="@+id/inputPassword"
+        app:layout_constraintEnd_toEndOf="@+id/inputPasswordConf"
         app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="@+id/inputPassword"
+        app:layout_constraintStart_toStartOf="@+id/inputPasswordConf"
         app:layout_constraintTop_toBottomOf="@+id/inputPasswordConf" />
 
 

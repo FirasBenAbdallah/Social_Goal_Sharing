@@ -36,11 +36,6 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //val toolbar = findViewById<Toolbar>(R.id.bottomnavigationtoolbar1)
-        //setSupportActionBar(toolbar)
-
-//        setContentView(R.layout.activity_main)
-
         val btnlogout = findViewById<ImageButton>(R.id.logoutIcon)
         btnlogout.setOnClickListener(){
             startActivity(Intent(this, Sign_in::class.java))
@@ -69,35 +64,5 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
-        //val btnsignup = findViewById<Button>(R.id.btnsignup1)
-        //val btnsignin = findViewById<Button>(R.id.btnsignin)
-//        val toolBar = findViewById<Toolbar>(R.id.bottomnavigationtoolbar)
-
-//        setSupportActionBar(toolBar)
-
-
-        /*btnsignup.setOnClickListener {
-            startActivity(Intent(this, Sign_up::class.java))
-        }
-        btnsignin.setOnClickListener{
-            startActivity(Intent(this, Sign_in::class.java))
-        }*/
-
-
     }
-
-    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.profile, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.logoutIcon -> {
-            startActivity(Intent(this, Sign_in::class.java))
-            finishAffinity()
-            true
-        }
-        else -> {false}
-    }*/
 }

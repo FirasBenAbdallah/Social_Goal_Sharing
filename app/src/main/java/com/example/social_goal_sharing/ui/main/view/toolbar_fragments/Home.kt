@@ -36,10 +36,15 @@ lateinit var homeitemsList : ArrayList<Acc>*/
     ): View? {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_home, container, false)
-       val r = v.findViewById<RecyclerView>(R.id.recycleHome)
+        val r = v.findViewById<RecyclerView>(R.id.recycleHome)
 
-
-       return v
+        val list = arrayListOf<Acc>(
+           Acc(R.drawable.ic_baseline_account,"FirasBA","3h",R.drawable.fifa,"chaima",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24),
+           Acc(R.drawable.ic_baseline_account,"FirasBA","3h",R.drawable.fifa,"chaima",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24),
+           Acc(R.drawable.ic_baseline_account,"FirasBA","3h",R.drawable.fifa,"chaima",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24)
+        )
+        r.adapter = HomeAdapter(list)
+        return v
     }
 /*
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

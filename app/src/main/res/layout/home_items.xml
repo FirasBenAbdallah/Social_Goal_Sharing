@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -61,26 +62,31 @@
         android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/likeBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/likeBtn"
             android:layout_margin="5dp"
             android:background="@drawable/icons8_heart_24"
-            />
+            android:contentDescription="@string/like"
+            tools:ignore="TouchTargetSizeCheck" />
+
         <ImageButton
+            android:id="@+id/cmntBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cmntBtn"
             android:layout_margin="5dp"
             android:background="@drawable/icons8_comments_24"
-            />
+            android:contentDescription="@string/message"
+            tools:ignore="TouchTargetSizeCheck" />
+
         <ImageButton
+            android:id="@+id/shareBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/shareBtn"
             android:layout_margin="5dp"
             android:background="@drawable/icons8_share_24"
-            />
+            android:contentDescription="@string/share"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 
@@ -88,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/liked"
-        android:text="Liked by ..."
+        android:text="@string/liked_by"
         android:textStyle="bold"
         android:layout_below="@+id/linearPub"
         android:paddingStart="8dp"

@@ -11,7 +11,7 @@ import com.example.social_goal_sharing.R
 import com.google.android.material.imageview.ShapeableImageView
 import org.w3c.dom.Text
 
-class HomeAdapter(private val accList : ArrayList<Acc>): RecyclerView.Adapter<recycler.HomeAdapter.MyViewHolder>() {
+class HomeAdapter(private val accList : List<Acc>): RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
 
 
 
@@ -21,7 +21,7 @@ class HomeAdapter(private val accList : ArrayList<Acc>): RecyclerView.Adapter<re
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentItem =accList[position]
+        val currentItem = accList[position]
         holder.profileicon!!.setImageResource(currentItem.profileIcon)
         holder.nametv!!.text = currentItem.nameTv
         holder.timetv!!.text = currentItem.timeTv
@@ -30,24 +30,20 @@ class HomeAdapter(private val accList : ArrayList<Acc>): RecyclerView.Adapter<re
         holder.likebtn!!.setImageResource(currentItem.likeBtn)
         holder.cmntbtn!!.setImageResource(currentItem.cmntBtn)
         holder.sharebtn!!.setImageResource(currentItem.shareBtn)
-
     }
 
     override fun getItemCount(): Int = accList.size
 
-
-
-
     class MyViewHolder (itemView : View):RecyclerView.ViewHolder(itemView){
 
-var profileicon : ImageView?=null
-var nametv : TextView?=null
-var timetv : TextView?=null
-var liked : TextView?=null
-var imgpub : ImageView?=null
-var likebtn : ImageButton?=null
-var cmntbtn : ImageButton?=null
-var sharebtn : ImageButton?=null
+        var profileicon : ImageView?=null
+        var nametv : TextView?=null
+        var timetv : TextView?=null
+        var liked : TextView?=null
+        var imgpub : ImageView?=null
+        var likebtn : ImageButton?=null
+        var cmntbtn : ImageButton?=null
+        var sharebtn : ImageButton?=null
         init {
             profileicon = itemView.findViewById(R.id.profilIcon)
             nametv = itemView.findViewById(R.id.nameTv)
@@ -57,15 +53,6 @@ var sharebtn : ImageButton?=null
             likebtn = itemView.findViewById(R.id.likeBtn)
             cmntbtn = itemView.findViewById(R.id.cmntBtn)
             sharebtn = itemView.findViewById(R.id.shareBtn)
-
         }
-
-
-
-
-
-
     }
-
-
 }

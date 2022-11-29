@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/cardVchat"
+        android:elevation="12dp"
+        app:cardCornerRadius="40dp"
+
+        android:innerRadius="0dp"
+        android:shape="ring"
+        android:thicknessRatio="1.9">
+
+        <ImageView
+            android:id="@+id/profilIconChat"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/ph2"
+            android:scaleType="centerCrop"/>
+    </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameChat"
+        android:text="Do it user"
+        android:layout_toRightOf="@+id/cardVchat"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:layout_marginStart="5dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/msg"
+        android:text="Hey!"
+        android:layout_toRightOf="@+id/cardVchat"
+        android:layout_below="@+id/nameChat"
+        android:layout_alignParentEnd="true"
+        android:textStyle="normal"
+        android:textSize="18dp"
+        android:textColor="@color/gris"
+        android:layout_marginStart="5dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeChat"
+        android:text="Now"
+        android:layout_alignParentEnd="true"
+        android:textSize="14dp"
+        android:textColor="@color/Gold"
+        android:layout_marginEnd="5dp"
+        />
+
+
+
+
+
+</RelativeLayout>

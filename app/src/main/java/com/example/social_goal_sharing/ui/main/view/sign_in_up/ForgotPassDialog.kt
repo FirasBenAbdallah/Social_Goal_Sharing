@@ -35,37 +35,45 @@ class ForgotPassDialog : AppCompatActivity() {
         val newpass = findViewById<TextInputEditText>(R.id.changepassnew)
         val confnewpass = findViewById<TextInputEditText>(R.id.changepassconf)
         val emailEdit = findViewById<TextInputEditText>(R.id.changeEmail)
+        val email = emailEdit.text.toString()
 
         val map = HashMap<String, String>()
-        map["email"] = emailEdit.text.toString()
         map["password"] = newpass.text.toString()
         map["confpassword"] = confnewpass.text.toString()
 
-        apiInterface.changePass(map).enqueue(object : Callback<Void> {
+        if (newpass.text.toString() == confnewpass.text.toString()) {
+            apiInterface.changePass(email, map).enqueue(object : Callback<Void> {
 
-            override fun onResponse(call: Call<Void>, response:
-            Response<Void>
-            ) {
-                if (response.code() == 200) {
+                override fun onResponse(
+                    call: Call<Void>, response:
+                    Response<Void>
+                ) {
+                    if (response.code() == 200) {
+                        Toast.makeText(
+                            this@ForgotPassDialog, "PassWord change success",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        startActivity(Intent(this@ForgotPassDialog, Sign_in::class.java))
+                    } else if (response.code() == 500) {
+                        Toast.makeText(
+                            this@ForgotPassDialog, "Wrong Credentials",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<Void>, t: Throwable) {
                     Toast.makeText(
-                        this@ForgotPassDialog, "PassWord change success",
-                        Toast.LENGTH_LONG
-                    ).show()
-                    //startActivity(Intent(this@ForgotPassDialog, MainActivity::class.java))
-                } else if (response.code() == 500) {
-                    Toast.makeText(
-                        this@ForgotPassDialog, "Wrong Credentials",
+                        this@ForgotPassDialog, t.message,
                         Toast.LENGTH_LONG
                     ).show()
                 }
-            }
-
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Toast.makeText(
-                    this@ForgotPassDialog, t.message,
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-        })
+            })
+        }else {
+            Toast.makeText(
+                this@ForgotPassDialog,
+                "Confirm password", Toast.LENGTH_LONG
+            ).show()
+        }
     }
 }

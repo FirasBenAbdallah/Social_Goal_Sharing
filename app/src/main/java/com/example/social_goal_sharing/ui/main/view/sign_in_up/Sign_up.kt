@@ -5,32 +5,36 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.ui.base.ApiInterface
-import com.example.social_goal_sharing.ui.main.view.toolbar_fragments.DatePickerFrag
-import com.google.android.material.internal.ViewUtils.hideKeyboard
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
-import kotlin.collections.HashMap
 
 class Sign_up : AppCompatActivity() {
 
+    private lateinit var pdp:ImageView
+    private var imageUri: Uri? = null
+
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
         val calendar = Calendar.getInstance()
-        val pdp = findViewById<ImageView>(R.id.pdp)
+        pdp = findViewById<ImageView>(R.id.pdp)
         val btnsignup = findViewById<Button>(R.id.btnsignup)
         val birthEt = findViewById<TextInputEditText>(R.id.inputBirthUpET)
 
@@ -59,7 +63,6 @@ class Sign_up : AppCompatActivity() {
         }
         btnsignup.setOnClickListener{
                 inscription()
-
         }
     }
 
@@ -138,10 +141,13 @@ class Sign_up : AppCompatActivity() {
             ).show()
         }
     }
+    @RequiresApi(Build.VERSION_CODES.N)
     fun setDate(input: EditText, calendar: Calendar) {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE)
         input.setText(dateFormat.format(calendar.time))
     }
+
+    @RequiresApi(Build.VERSION_CODES.N)
     fun dateListener(input: EditText, calendar: Calendar) =
         DatePickerDialog.OnDateSetListener { _, year, month, day ->
             calendar.set(Calendar.YEAR, year)
@@ -149,4 +155,12 @@ class Sign_up : AppCompatActivity() {
             calendar.set(Calendar.DAY_OF_MONTH, day)
             setDate(input, calendar)
         }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == 100) {
+            imageUri = data?.data
+            pdp.setImageURI(imageUri)
+        }
+    }
 }

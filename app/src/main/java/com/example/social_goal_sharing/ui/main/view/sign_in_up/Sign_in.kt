@@ -31,8 +31,8 @@ class Sign_in : AppCompatActivity() {
         val btnlogin = findViewById<Button>(R.id.btnlogin)
 
         btnlogin.setOnClickListener(){
-           //login()
-            startActivity(Intent(this, MainActivity::class.java))
+           login()
+            //startActivity(Intent(this, MainActivity::class.java))
         }
 
         textviewsignup.setOnClickListener(){
@@ -50,7 +50,7 @@ class Sign_in : AppCompatActivity() {
             startActivity(Intent(this, ForgotPassDialog::class.java))
         }
     }
-    /*private fun login(){
+    private fun login(){
         val apiInterface = ApiInterface.create()
         val emailEdit = findViewById<TextInputEditText>(R.id.inputEmailET)
         val passwordEdit = findViewById<TextInputEditText>(R.id.Password)
@@ -90,5 +90,5 @@ class Sign_in : AppCompatActivity() {
                 ).show()
             }
         })
-    }*/
+    }
 }

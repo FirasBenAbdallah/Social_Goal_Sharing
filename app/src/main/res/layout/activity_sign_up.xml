@@ -12,26 +12,38 @@
         android:id="@+id/doitup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/sacramento"
         android:text="@string/do_it"
         android:textColor="@color/Gold"
         android:textSize="60sp"
-        app:layout_constraintEnd_toStartOf="@+id/pdp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cardVpdp"
+        app:layout_constraintStart_toStartOf="@+id/inputPrenomUp"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/pdp"
+    <com.google.android.material.circularreveal.cardview.CircularRevealCardView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/ic_baseline_account_circle_24"
         app:layout_constraintStart_toEndOf="@+id/doitup"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/cardVpdp"
+        android:elevation="12dp"
+        app:cardCornerRadius="80dp"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        app:layout_constraintEnd_toEndOf="@+id/inputPrenomUp"
+        android:layout_marginTop="4dp"
+        android:thicknessRatio="1.9">
+
+        <ImageView
+            android:id="@+id/pdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_baseline_account_circle_24"
+            android:scaleType="centerCrop"/>
+    </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
+
 
     <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputPrenomUp"
@@ -49,7 +61,7 @@
             app:boxCornerRadiusTopStart="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pdp"
+            app:layout_constraintTop_toBottomOf="@+id/cardVpdp"
             app:startIconDrawable="@drawable/ic_baseline_account"
             app:startIconTint="@color/Gold">
 

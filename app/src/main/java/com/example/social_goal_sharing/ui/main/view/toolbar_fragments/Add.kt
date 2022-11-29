@@ -2,26 +2,20 @@ package com.example.social_goal_sharing.ui.main.view.toolbar_fragments
 
 //import android.app.DatePickerDialog
 
-import android.content.Context
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.icu.util.Calendar
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.R.layout.fragment_add
 import com.example.social_goal_sharing.databinding.FragmentAddBinding
-import com.google.android.material.internal.ViewUtils.hideKeyboard
-import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
-import org.jetbrains.annotations.Nullable
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -43,6 +37,7 @@ private const val ARG_PARAM2 = "param2"
 
 
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -18,6 +18,7 @@ import retrofit2.Response
 import kotlin.math.log
 
 class ForgotPassDialog : AppCompatActivity() {
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,15 +26,15 @@ class ForgotPassDialog : AppCompatActivity() {
 
         val btncofpass = findViewById<Button>(R.id.changepassBtn)
 
-        /*btncofpass.setOnClickListener(){
+        btncofpass.setOnClickListener(){
             ChangePassWord()
-        }*/
+        }
     }
-    /*private fun ChangePassWord(){
+    private fun ChangePassWord(){
         val apiInterface = ApiInterface.create()
         val newpass = findViewById<TextInputEditText>(R.id.changepassnew)
         val confnewpass = findViewById<TextInputEditText>(R.id.changepassconf)
-        val emailEdit = findViewById<TextInputEditText>(R.id.inputEmailET)
+        val emailEdit = findViewById<TextInputEditText>(R.id.changeEmail)
 
         val map = HashMap<String, String>()
         map["email"] = emailEdit.text.toString()
@@ -66,5 +67,5 @@ class ForgotPassDialog : AppCompatActivity() {
                 ).show()
             }
         })
-    }*/
+    }
 }

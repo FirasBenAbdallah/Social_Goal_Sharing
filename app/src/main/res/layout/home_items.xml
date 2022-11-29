@@ -63,27 +63,30 @@
 
         <ImageButton
             android:id="@+id/likeBtn"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/icons8_heart_24"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:contentDescription="@string/like"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ImageButton
             android:id="@+id/cmntBtn"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/icons8_comments_24"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:contentDescription="@string/message"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ImageButton
             android:id="@+id/shareBtn"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/icons8_share_24"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:contentDescription="@string/share"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 
@@ -91,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/liked"
-        android:text="Liked by ..."
+        android:text="@string/liked_by"
         android:textStyle="bold"
         android:layout_below="@+id/linearPub"
         android:paddingStart="8dp"

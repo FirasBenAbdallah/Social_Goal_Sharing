@@ -31,8 +31,8 @@ class Sign_in : AppCompatActivity() {
         val btnlogin = findViewById<Button>(R.id.btnlogin)
 
         btnlogin.setOnClickListener(){
-           login()
-            //startActivity(Intent(this, MainActivity::class.java))
+           //login()
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
         textviewsignup.setOnClickListener(){

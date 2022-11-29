@@ -39,8 +39,8 @@
     <string name="like">like</string>
     <string name="share">share</string>
     <string name="liked_by">Liked by ...</string>
-    <string name="start">start</string>
-    <string name="end">end</string>
+    <string name="end">Event ends</string>
+    <string name="start">Event starts</string>
 
 
 </resources>

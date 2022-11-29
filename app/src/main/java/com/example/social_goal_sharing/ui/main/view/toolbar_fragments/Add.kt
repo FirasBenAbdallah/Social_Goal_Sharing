@@ -4,6 +4,7 @@ package com.example.social_goal_sharing.ui.main.view.toolbar_fragments
 
 import android.content.Intent
 import android.icu.util.Calendar
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -12,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.R.layout.fragment_add
@@ -28,6 +30,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
  class Add : Fragment(fragment_add) {
+    private var imageUri: Uri? = null
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
 
@@ -102,6 +105,13 @@ private const val ARG_PARAM2 = "param2"
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == AppCompatActivity.RESULT_OK && requestCode == 100) {
+            imageUri = data?.data
+            imgAdd.setImageURI(imageUri)
+        }
     }
 
 

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.social_goal_sharing.R
 import recycler.Acc
@@ -33,22 +34,22 @@ lateinit var homeitemsList : ArrayList<Acc>*/
    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View?
         // Inflate the layout for this fragment
-        val v = inflater.inflate(R.layout.fragment_home, container, false)
+        = inflater.inflate(R.layout.fragment_home, container, false)
+
+    override fun onViewCreated(v: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(v, savedInstanceState)
         val r = v.findViewById<RecyclerView>(R.id.recycleHome)
 
         val list = arrayListOf<Acc>(
-           Acc(R.drawable.ic_baseline_account,"FirasBA","3h",R.drawable.fifa,"chaima",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24),
-           Acc(R.drawable.ic_baseline_account,"FirasBA","3h",R.drawable.fifa,"chaima",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24),
-           Acc(R.drawable.ic_baseline_account,"FirasBA","3h",R.drawable.fifa,"chaima",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24)
+            Acc(R.drawable.ic_baseline_account,"FirasBA","3h",R.drawable.do_white,"chaima",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24),
+            Acc(R.drawable.ic_baseline_account,"FirasBA","3h",R.drawable.do_white,"chaima",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24),
+            Acc(R.drawable.ic_baseline_account,"FirasBA","3h",R.drawable.do_white,"chaima",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24)
         )
         r.adapter = HomeAdapter(list)
-        return v
+        r.layoutManager = LinearLayoutManager(v.context)
+
     }
-/*
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }*/
 
 }

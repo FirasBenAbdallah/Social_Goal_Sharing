@@ -65,11 +65,6 @@ class Sign_in : AppCompatActivity() {
             Response<Login>
             ) {
                 if (response.code() == 200) {
-                    /*val result = response.body()
-                    val builder1 = AlertDialog.Builder(this@Sign_in)
-                    builder1.setTitle(result!!.email)
-                    builder1.setMessage("Login success")
-                    builder1.show()*/
                     Toast.makeText(
                         this@Sign_in, "Login success",
                         Toast.LENGTH_LONG

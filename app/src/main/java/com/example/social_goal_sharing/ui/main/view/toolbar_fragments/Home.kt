@@ -19,16 +19,10 @@ lateinit var recyclerView: RecyclerView
 lateinit var homeitemsList : ArrayList<Acc>*/
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
-
-
         }
-
     }
 
    override fun onCreateView(
@@ -43,13 +37,13 @@ lateinit var homeitemsList : ArrayList<Acc>*/
         val r = v.findViewById<RecyclerView>(R.id.recycleHome)
 
         val list = arrayListOf<Acc>(
-            Acc(R.drawable.ic_baseline_account,"FirasBA","3h",R.drawable.do_white,"chaima",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24),
-            Acc(R.drawable.ic_baseline_account,"FirasBA","3h",R.drawable.do_white,"chaima",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24),
-            Acc(R.drawable.ic_baseline_account,"FirasBA","3h",R.drawable.do_white,"chaima",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24)
+            Acc(R.drawable.ic_baseline_account,"FirasBA","3h",R.drawable.fifa,"slouma",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24),
+            Acc(R.drawable.ic_baseline_account,"Firas","3h",R.drawable.do_white,"slouma,aymen",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24),
+            Acc(R.drawable.ic_baseline_account,"FBA","30mn",R.drawable.env,"slouma",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24),
+            Acc(R.drawable.ic_baseline_account,"Slouma","1j",R.drawable.ph2,"slouma",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24),
+            Acc(R.drawable.ic_baseline_account,"Echebbi","3h",R.drawable.do_white,"slouma",R.drawable.icons8_heart_24,R.drawable.ic_baseline_message_24,R.drawable.icons8_share_24)
         )
         r.adapter = HomeAdapter(list)
         r.layoutManager = LinearLayoutManager(v.context)
-
     }
-
 }

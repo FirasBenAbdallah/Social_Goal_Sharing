@@ -2,17 +2,12 @@ package com.example.social_goal_sharing.ui.main.view
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Button
 import android.widget.ImageButton
-import androidx.appcompat.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.databinding.ActivityMainBinding
-import com.example.social_goal_sharing.ui.main.view.sign_in_up.Sign_up
 import com.example.social_goal_sharing.ui.main.view.sign_in_up.Sign_in
 import com.example.social_goal_sharing.ui.main.view.toolbar_fragments.*
 
@@ -56,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
             when(it.itemId){
                 R.id.homeIcon -> replaceFragment(Home())
-                R.id.profilIcon -> replaceFragment(profile())
+                R.id.profilIcon -> replaceFragment(Profile())
                 R.id.plusIcon -> replaceFragment(Add())
                 R.id.searchIcon -> replaceFragment(LookFor())
                 R.id.messageIcon -> replaceFragment(Discussion())

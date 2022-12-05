@@ -1,104 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="10dp"
+    android:layout_marginHorizontal="5dp"
+    app:cardCornerRadius="10dp">
 
-<com.google.android.material.circularreveal.cardview.CircularRevealCardView
-    android:layout_width="80dp"
-    android:layout_height="80dp"
-    android:id="@+id/cardV"
-    android:elevation="12dp"
-    app:cardCornerRadius="40dp"
-    android:innerRadius="0dp"
-    android:shape="ring"
-    android:thicknessRatio="1.9">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/profilIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        app:srcCompat="@drawable/ph2"
-        android:scaleType="centerCrop"/>
-</com.google.android.material.circularreveal.cardview.CircularRevealCardView>
-<LinearLayout
-    android:id="@+id/linear1"
-    android:layout_width="match_parent"
-    android:layout_margin="10dp"
-    android:layout_height="60dp"
-    android:layout_toRightOf="@id/cardV"
-    android:gravity="center_vertical"
-    android:orientation="vertical">
-    <TextView
-        android:id="@+id/nameTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Username"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        />
-    <TextView
-        android:id="@+id/timeTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="3h"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        />
+        <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/cardV"
+            android:elevation="12dp"
+            app:cardCornerRadius="40dp"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="1.9">
+            <ImageView
+                android:id="@+id/profilIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                app:srcCompat="@drawable/ph2"
+                android:scaleType="centerCrop"/>
+        </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
 
-</LinearLayout>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:layout_below="@+id/cardV"
-        android:id="@+id/imgPub"
-        android:background="@color/Gold"/>
-    <LinearLayout
-        android:id="@+id/linearPub"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imgPub"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="60dp"
+            android:layout_toRightOf="@id/cardV"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/nameTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/timeTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3h"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/likeBtn"
+        <ImageView
+            android:id="@+id/imgPub"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/cardV"
+            />
+
+        <LinearLayout
+            android:id="@+id/linearPub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgPub"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/likeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/icons8_heart_24"
+                android:contentDescription="@string/like"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <ImageButton
+                android:id="@+id/cmntBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/icons8_comments_24"
+                android:contentDescription="@string/message"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <ImageButton
+                android:id="@+id/shareBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/icons8_share_24"
+                android:contentDescription="@string/share"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/icons8_heart_24"
-            android:contentDescription="@string/like"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:id="@+id/liked"
+            android:text="@string/liked_by"
+            android:textStyle="bold"
+            android:layout_below="@+id/linearPub"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            />
 
-        <ImageButton
-            android:id="@+id/cmntBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/icons8_comments_24"
-            android:contentDescription="@string/message"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <ImageButton
-            android:id="@+id/shareBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/icons8_share_24"
-            android:contentDescription="@string/share"
-            tools:ignore="TouchTargetSizeCheck" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/liked"
-        android:text="@string/liked_by"
-        android:textStyle="bold"
-        android:layout_below="@+id/linearPub"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        />
-
-</RelativeLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

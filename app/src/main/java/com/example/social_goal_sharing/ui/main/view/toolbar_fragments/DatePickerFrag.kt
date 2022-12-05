@@ -23,7 +23,6 @@ class DatePickerFrag : DialogFragment(),DatePickerDialog.OnDateSetListener {
         return DatePickerDialog(requireActivity(),this, year, month,day)
     }
 
-
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         calendar.set(Calendar.YEAR,year)
         calendar.set(Calendar.MONTH,month)
@@ -36,6 +35,4 @@ class DatePickerFrag : DialogFragment(),DatePickerDialog.OnDateSetListener {
 
         setFragmentResult("REQUEST_KEY",slectedDateBundle)
     }
-
-
 }

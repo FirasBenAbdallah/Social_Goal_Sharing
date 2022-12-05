@@ -1,46 +1,44 @@
 package com.example.social_goal_sharing.ui.main.view.toolbar_fragments
 
-//import android.app.DatePickerDialog
-
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.icu.util.Calendar
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
-import androidx.annotation.RequiresApi
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.R.layout.fragment_add
 import com.example.social_goal_sharing.databinding.FragmentAddBinding
+import com.example.social_goal_sharing.ui.base.EventApi
+import com.google.android.material.textfield.TextInputEditText
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-/**
- * A simple [Fragment] subclass.
- * Use the [Add.newInstance] factory method to
- * create an instance of this fragment.
- */
- class Add : Fragment(fragment_add) {
+class Add : Fragment(fragment_add) {
+
     private var imageUri: Uri? = null
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var eventName : TextInputEditText
+    private lateinit var eventAddress : TextInputEditText
+    private lateinit var eventStart : TextInputEditText
+    private lateinit var eventEnd : TextInputEditText
+    private lateinit var eventDesc : TextInputEditText
     private lateinit var imgAdd : ImageView
-   // private lateinit var dateEv : TextView
+    private lateinit var btnadd : Button
     private lateinit var calendar: Calendar
 
-
-
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,10 +47,16 @@ private const val ARG_PARAM2 = "param2"
         val v=inflater.inflate(fragment_add, container, false)
         imgAdd= v.findViewById(R.id.imgAdd)
 
+        eventName = v.findViewById(R.id.inputNomev)
+        eventAddress = v.findViewById(R.id.inputLieu)
+        eventStart = v.findViewById(R.id.dateEvStart)
+        eventEnd = v.findViewById(R.id.dateEvEnd)
+        eventDesc = v.findViewById(R.id.inputDesc)
+        btnadd = v.findViewById(R.id.btnAddEvent)
+
         //dateEv= v.findViewById(R.id.dateEv)
        calendar = Calendar.getInstance()
         imgAdd.setOnClickListener {
-
             startActivityForResult(
                 Intent(
                     Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI
@@ -60,11 +64,12 @@ private const val ARG_PARAM2 = "param2"
             )
         }
 
+        btnadd.setOnClickListener{
+            v -> addEvent()
+        }
 
         return v
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -79,7 +84,6 @@ private const val ARG_PARAM2 = "param2"
             ) { resultKey, bundle ->
                 if (resultKey == "REQUEST_KEY") {
                     val date = bundle.getString("SELECTED_DATE")
-
                         dateEvStart.setText(date)
                 }
             }
@@ -94,7 +98,6 @@ private const val ARG_PARAM2 = "param2"
                 ) { resultKey, bundle ->
                     if (resultKey == "REQUEST_KEY") {
                         val date = bundle.getString("SELECTED_DATE")
-
                         dateEvEnd.setText(date)
                     }
                 }
@@ -102,10 +105,12 @@ private const val ARG_PARAM2 = "param2"
             }
         }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == AppCompatActivity.RESULT_OK && requestCode == 100) {
@@ -114,6 +119,66 @@ private const val ARG_PARAM2 = "param2"
         }
     }
 
+    @SuppressLint("CutPasteId")
+    private fun addEvent() {
+        val apiInterface = EventApi.create()
 
+        val eventNameSt = eventName.text.toString()
+        val eventAddressSt = eventAddress.text.toString()
+        val eventStartSt = eventStart.text.toString()
+        val eventEndSt = eventEnd.text.toString()
+        val eventDescSt = eventDesc.text.toString()
 
+        val map = HashMap<String, String>()
+        map["eventname"] = eventNameSt
+        map["eventaddress"] = eventAddressSt
+        map["eventstart"] = eventStartSt
+        map["eventend"] = eventEndSt
+        map["eventdesc"] = eventDescSt
+
+//        if (eventNameSt.isNotEmpty()
+//            && eventAddressSt.isNotEmpty()
+//            && eventStartSt.isNotEmpty()
+//            && eventEndSt.isNotEmpty()
+//            && eventDescSt.isNotEmpty()) {
+        apiInterface.executeEventAdd(map).enqueue(object : Callback<Void> {
+
+            override fun onResponse(
+                call: Call<Void>, response:
+                Response<Void>
+            ) {
+                if (response.code() == 201) {
+                    Toast.makeText(
+                        activity,
+                        "Event added successfully",
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else if (response.code() == 400) {
+                    Toast.makeText(
+                        activity,
+                        "Already registered",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Toast.makeText(
+                    activity,
+                    t.message,
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        })
+        /*} else {
+            Toast.makeText(
+                activity,
+                "You must fill all the fields",
+                Toast.LENGTH_LONG
+            ).show()
+        }*/
+    }
 }
+
+
+

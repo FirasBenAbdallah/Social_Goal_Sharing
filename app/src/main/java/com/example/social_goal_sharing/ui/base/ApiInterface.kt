@@ -15,6 +15,7 @@ interface ApiInterface {
     fun executeSignup(@Body map: HashMap<String, String>): Call<Void>
     @PATCH("modify/{email}")
     fun changePass(@Path("email") email: String, @Body map: HashMap<String, String>): Call<Void>
+
     companion object {
         var BASE_URL = "http://172.16.4.147:3001/user/"
         fun create() : ApiInterface {

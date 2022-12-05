@@ -6,14 +6,12 @@ import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.ui.base.ApiInterface
@@ -28,7 +26,7 @@ class Sign_up : AppCompatActivity() {
     private lateinit var pdp:ImageView
     private var imageUri: Uri? = null
 
-    @RequiresApi(Build.VERSION_CODES.N)
+//    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -119,7 +117,6 @@ class Sign_up : AppCompatActivity() {
                             ).show()
                         }
                     }
-
                     override fun onFailure(call: Call<Void>, t: Throwable) {
                         Toast.makeText(
                             this@Sign_up, t.message,
@@ -141,13 +138,14 @@ class Sign_up : AppCompatActivity() {
             ).show()
         }
     }
-    @RequiresApi(Build.VERSION_CODES.N)
+
+//    @RequiresApi(Build.VERSION_CODES.N)
     fun setDate(input: EditText, calendar: Calendar) {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE)
         input.setText(dateFormat.format(calendar.time))
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
+//    @RequiresApi(Build.VERSION_CODES.N)
     fun dateListener(input: EditText, calendar: Calendar) =
         DatePickerDialog.OnDateSetListener { _, year, month, day ->
             calendar.set(Calendar.YEAR, year)

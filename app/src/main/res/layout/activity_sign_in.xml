@@ -41,10 +41,10 @@
         app:layout_constraintTop_toBottomOf="@+id/login">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputEmailET"
+            android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
+            android:inputType="number"
             android:textColorHighlight="#796221"
             android:textColorHint="#757575" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -70,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/inputEmail">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Password"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"

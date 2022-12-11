@@ -12,11 +12,11 @@ interface EventApi {
 
     @GET("/getevents")
     fun getEvent(@Body map: HashMap<String, String>): Call<Void>
-    @POST("addevent")
+    @POST("/addevent")
     fun executeEventAdd(@Body map: HashMap<String, String>): Call<Void>
 
     companion object {
-        var BASE_URL = "http://192.168.1.12:3001/event/"
+        var BASE_URL = "http://192.168.31.126:3001/event/"
         fun create() : EventApi {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())

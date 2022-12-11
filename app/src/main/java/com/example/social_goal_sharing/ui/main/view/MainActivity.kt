@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
             when(it.itemId){
                 R.id.homeIcon -> replaceFragment(Home())
-                R.id.profilIcon -> replaceFragment(Profile())
+                R.id.profilIcon -> replaceFragment(profile())
                 R.id.plusIcon -> replaceFragment(Add())
                 R.id.searchIcon -> replaceFragment(LookFor())
                 R.id.messageIcon -> replaceFragment(Discussion())

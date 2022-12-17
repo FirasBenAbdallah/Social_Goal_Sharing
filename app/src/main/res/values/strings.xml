@@ -41,6 +41,8 @@
     <string name="liked_by">Liked by ...</string>
     <string name="end">Event ends</string>
     <string name="start">Event starts</string>
+    <string name="nav_open">nav_open</string>
+    <string name="nav_close">nav_close</string>
 
 
 </resources>

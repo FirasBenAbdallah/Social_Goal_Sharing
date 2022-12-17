@@ -8,6 +8,7 @@ import android.os.Looper
 import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.ui.main.view.MainActivity
 import com.example.social_goal_sharing.ui.main.view.sign_in_up.Sign_in
+import com.example.social_goal_sharing.ui.utils.SharedPreference
 
 class SplashScreen : AppCompatActivity() {
     private val SPLASH_TIME_OUT: Long = 2000 //3 sec
@@ -15,9 +16,17 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, Sign_in::class.java))
-            finish()
-        }, SPLASH_TIME_OUT)
+
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            val accessToken : String = SharedPreference().getAccessToken(applicationContext)
+//            if (accessToken.isEmpty()){
+                startActivity(Intent(applicationContext,Sign_in::class.java))
+//            }else {
+//                startActivity(Intent(applicationContext,MainActivity::class.java))
+//            }
+//            finish()
+//        }, )
+            SPLASH_TIME_OUT
+
     }
 }

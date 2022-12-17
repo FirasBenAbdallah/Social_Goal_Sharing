@@ -18,9 +18,11 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.ui.base.ApiInterface
+import com.example.social_goal_sharing.ui.models.GeneralResponse
 import com.example.social_goal_sharing.ui.utils.Utility
 import com.google.android.material.textfield.TextInputEditText
 import com.google.androidgamesdk.gametextinput.Listener
+import com.google.gson.Gson
 import okhttp3.internal.Util
 import retrofit2.Call
 import retrofit2.Callback
@@ -84,7 +86,9 @@ class Sign_up : AppCompatActivity() {
                     "&address=" + address.text + "&password=" + password.text +
                     "&conf_password=" + conf_password.text + "&pdp=" + pdp.toString()
             val stringRequest : StringRequest = object : StringRequest(Method.POST , url , com.android.volley.Response.Listener{
-                response -> Log.i("my log",response)
+                response ->
+                val generalResponse: GeneralResponse = Gson().fromJson(response, GeneralResponse::class.java)
+                Utility.showAlert(this, "SignUp",generalResponse.message)
             },com.android.volley.Response.ErrorListener{
                 error -> Log.i("my log",error.message.toString())
             }) {

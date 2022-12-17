@@ -58,6 +58,8 @@ class Sign_in : AppCompatActivity() {
                     val preference:SharedPreference = SharedPreference()
                     preference.setAccessToken(this,loginModel.accessToken)
 
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
                 }else{
                     Utility.showAlert(this,"Error",loginModel.message)
                 }

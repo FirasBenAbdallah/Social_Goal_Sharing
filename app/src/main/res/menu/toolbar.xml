@@ -13,7 +13,7 @@
         android:id="@+id/dehazeIcon"
         android:icon="@drawable/ic_baseline_dehaze_24"
         android:title="@string/home"
-        app:showAsAction="always"
+        app:showAsAction="never"
         />
 
 </menu>

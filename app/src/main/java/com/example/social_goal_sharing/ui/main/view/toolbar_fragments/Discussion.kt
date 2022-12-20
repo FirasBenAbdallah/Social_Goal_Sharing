@@ -1,17 +1,15 @@
 package com.example.social_goal_sharing.ui.main.view.toolbar_fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.social_goal_sharing.R
-import com.example.social_goal_sharing.ui.main.view.Adapters.ChatAdapter
-import recycler.Acc
+import com.example.social_goal_sharing.ui.main.adapter.ChatAdapter
 import recycler.ChatList
-import recycler.HomeAdapter
 
 class Discussion : Fragment() {
 

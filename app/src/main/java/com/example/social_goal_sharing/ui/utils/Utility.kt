@@ -4,7 +4,7 @@ import android.app.AlertDialog
 import android.content.Context
 
 object Utility {
-    val apiUrl: String = "http://172.16.11.130:3000"
+    val apiUrl: String = "http://192.168.1.15:3000"
     fun showAlert(
         context: Context, title: String = "",
         message: String = "", onYes: Runnable? = null, onNo: Runnable? = null

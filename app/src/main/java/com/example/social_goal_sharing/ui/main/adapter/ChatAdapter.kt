@@ -1,4 +1,4 @@
-package com.example.social_goal_sharing.ui.main.view.Adapters
+package com.example.social_goal_sharing.ui.main.adapter
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,5 +1,6 @@
 package com.example.social_goal_sharing.ui.main.view.toolbar_fragments
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.icu.util.Calendar
 import android.net.Uri
@@ -74,6 +75,7 @@ class Add : Fragment(fragment_add) {
         return v
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentAddBinding.bind(view)
@@ -114,6 +116,7 @@ class Add : Fragment(fragment_add) {
         _binding = null
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == AppCompatActivity.RESULT_OK && requestCode == 100) {

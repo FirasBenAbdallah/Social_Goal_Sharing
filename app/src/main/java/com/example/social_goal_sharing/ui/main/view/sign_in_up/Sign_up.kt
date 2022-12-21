@@ -90,7 +90,7 @@ class Sign_up : AppCompatActivity() {
     }
 
     fun setDate(input: EditText, calendar: Calendar) {
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE)
+        val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE)
         input.setText(dateFormat.format(calendar.time))
     }
 
@@ -102,6 +102,7 @@ class Sign_up : AppCompatActivity() {
             setDate(input, calendar)
         }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == 100) {

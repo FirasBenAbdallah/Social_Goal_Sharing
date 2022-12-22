@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-         getData()
+        getData()
     }
 
     fun doLogout() {
@@ -95,11 +95,11 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         },Response.ErrorListener {
-            error ->
+
         }){
             override fun getHeaders(): MutableMap<String, String> {
                 val headers: HashMap<String,String> = HashMap()
-                headers["Authorization"] = "Bearer "+sharedPreference.getAccessToken(applicationContext)
+                headers["authorization"] = "Bearer " + sharedPreference.getAccessToken(applicationContext)
                 return headers
             }
         }
@@ -119,12 +119,12 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-        },Response.ErrorListener { error ->  
-
+        },Response.ErrorListener {
+                error ->
         }){
             override fun getHeaders(): MutableMap<String, String> {
                 val headers: HashMap<String,String> = HashMap()
-                headers["Authorization"] = "Bearer "+ sharedPreference.getAccessToken(applicationContext)
+                headers["authorization"] = "Bearer " + sharedPreference.getAccessToken(applicationContext)
                 return headers
             }
         }
@@ -183,14 +183,13 @@ class MainActivity : AppCompatActivity() {
                     response ->
                     val  generalResponse : GeneralResponse = Gson().fromJson(response, GeneralResponse::class.java)
                     Utility.showAlert(this,"Save contacts", generalResponse.message)
-                },
-            Response.ErrorListener { error ->
+                },Response.ErrorListener { error ->
 
             }
         ){
             override fun getHeaders(): MutableMap<String, String> {
                 val headers : HashMap<String, String> = HashMap()
-                headers["Authorization"] = "Bearer " + sharedPreference.getAccessToken(applicationContext)
+                headers["authorization"] = "Bearer " + sharedPreference.getAccessToken(applicationContext)
                 return headers
             }
 

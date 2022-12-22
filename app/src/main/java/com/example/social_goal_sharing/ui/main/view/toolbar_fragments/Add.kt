@@ -23,8 +23,6 @@ import com.example.social_goal_sharing.ui.models.GeneralResponse
 import com.example.social_goal_sharing.ui.utils.Utility
 import com.google.android.material.textfield.TextInputEditText
 import com.google.gson.Gson
-import retrofit2.Response
-import java.net.URLEncoder
 import java.nio.charset.Charset
 
 
@@ -69,7 +67,7 @@ class Add : Fragment(fragment_add) {
         }
 
         btnadd.setOnClickListener{
-            v -> addEvent()
+            addEvent()
         }
 
         return v

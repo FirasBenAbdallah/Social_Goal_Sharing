@@ -48,7 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:textColorHighlight="@color/Gold" />
+            android:textColorHighlight="@color/Gold"
+            android:textColorHint="#757575" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,12 +76,13 @@
         app:layout_constraintTop_toBottomOf="@id/inputEmailDialog"
         app:endIconMode="password_toggle">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/changepassnew"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:textColorHighlight="@color/Gold" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/changepassnew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColorHighlight="@color/Gold"
+            android:textColorHint="#757575" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

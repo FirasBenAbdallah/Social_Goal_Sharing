@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-        getData()
+         getData()
     }
     fun doLogout() {
         val queue = Volley.newRequestQueue(this)
@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() {
         }){
             override fun getHeaders(): MutableMap<String, String> {
                 val headers: HashMap<String,String> = HashMap()
-                headers["authorization"] = "Bearer "+sharedPreference.getAccessToken(applicationContext)
+                headers["Authorization"] = "Bearer "+ sharedPreference.getAccessToken(applicationContext)
                 return headers
             }
         }
@@ -194,13 +194,14 @@ class MainActivity : AppCompatActivity() {
                     response ->
                     val  generalResponse : GeneralResponse = Gson().fromJson(response, GeneralResponse::class.java)
                     Utility.showAlert(this,"Save contacts", generalResponse.message)
-                },Response.ErrorListener { error ->
+                },
+            Response.ErrorListener { error ->
 
             }
         ){
             override fun getHeaders(): MutableMap<String, String> {
                 val headers : HashMap<String, String> = HashMap()
-                headers["autorization"] = "Bearer" + sharedPreference.getAccessToken(applicationContext)
+                headers["Authorization"] = "Bearer " + sharedPreference.getAccessToken(applicationContext)
                 return headers
             }
 

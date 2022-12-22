@@ -47,7 +47,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'androidx.games:games-activity:1.2.1'
+    implementation 'androidx.games:games-activity:1.2.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     implementation "com.wdullaer:materialdatetimepicker:4.2.3"

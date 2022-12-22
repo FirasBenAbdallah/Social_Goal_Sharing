@@ -1,22 +1,15 @@
 package com.example.social_goal_sharing.ui.main.view
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.ContactsContract
-import android.provider.ContactsContract.Contacts
 import android.util.Log
 import android.widget.ImageButton
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -30,7 +23,6 @@ import com.example.social_goal_sharing.ui.models.GetUserModel
 import com.example.social_goal_sharing.ui.models.User
 import com.example.social_goal_sharing.ui.utils.SharedPreference
 import com.example.social_goal_sharing.ui.utils.Utility
-import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
 import org.json.JSONArray
 import org.json.JSONObject
@@ -51,8 +43,6 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commitNow()
     }
 
-
-
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,20 +52,16 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         val btnlogout = findViewById<ImageButton>(R.id.logoutIcon)
         btnlogout.setOnClickListener(){
             doLogout()
-            //startActivity(Intent(this, Sign_in::class.java))
            // finishAffinity()
         }
         binding.bottomnavigationtoolbar1.setOnItemSelectedListener {
             when(it.itemId) {
                 R.id.logoutIcon -> {
                     doLogout()
-                   // startActivity(Intent(this, Sign_in::class.java))
                     //finishAffinity()
-
                 }
                 else -> {}
             }
@@ -85,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
             when(it.itemId){
                 R.id.homeIcon -> replaceFragment(Home())
-                R.id.profilIcon -> replaceFragment(profile())
+                R.id.profilIcon -> replaceFragment(Profile())
                 R.id.plusIcon -> replaceFragment(Add())
                 R.id.searchIcon -> replaceFragment(LookFor())
                 R.id.messageIcon -> replaceFragment(Discussion())
@@ -95,6 +81,7 @@ class MainActivity : AppCompatActivity() {
         }
          getData()
     }
+
     fun doLogout() {
         val queue = Volley.newRequestQueue(this)
         val url = Utility.apiUrl + "/logout"
@@ -118,6 +105,7 @@ class MainActivity : AppCompatActivity() {
         }
         queue.add(stringRequest)
     }
+
     fun getData(){
         val queue = Volley.newRequestQueue(this)
         val url = Utility.apiUrl + "/getUser"
@@ -142,6 +130,7 @@ class MainActivity : AppCompatActivity() {
         }
         queue.add(stringRequest)
     }
+
     fun getContactsPermission() {
         val permission = ContextCompat.checkSelfPermission(
             this,
@@ -154,8 +143,8 @@ class MainActivity : AppCompatActivity() {
            arrayOf(android.Manifest.permission.READ_CONTACTS),
             565)
         }
-
     }
+
     @SuppressLint("Range")
     fun getContacts(){
         val contacts : JSONArray = JSONArray()

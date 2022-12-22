@@ -6,22 +6,26 @@ import android.icu.util.Calendar
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.R.layout.fragment_add
 import com.example.social_goal_sharing.databinding.FragmentAddBinding
-import com.example.social_goal_sharing.ui.base.EventApi
+import com.example.social_goal_sharing.ui.models.GeneralResponse
+import com.example.social_goal_sharing.ui.utils.Utility
 import com.google.android.material.textfield.TextInputEditText
-import retrofit2.Call
-import retrofit2.Callback
+import com.google.gson.Gson
 import retrofit2.Response
+import java.net.URLEncoder
+import java.nio.charset.Charset
 
 
 class Add : Fragment(fragment_add) {
@@ -71,6 +75,7 @@ class Add : Fragment(fragment_add) {
         return v
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentAddBinding.bind(view)
@@ -111,6 +116,7 @@ class Add : Fragment(fragment_add) {
         _binding = null
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == AppCompatActivity.RESULT_OK && requestCode == 100) {
@@ -119,7 +125,28 @@ class Add : Fragment(fragment_add) {
         }
     }
 
-    @SuppressLint("CutPasteId")
+    private fun addEvent() {
+        val queue = Volley.newRequestQueue(context)
+        val url : String = Utility.apiUrl + "/addevent"
+        val requestBody : String = "name=" + eventName.text +
+                "&address=" + eventAddress.text + "&start=" + eventStart.text +
+                "&end=" + eventEnd.text + "&description=" + eventDesc.text +
+                "&pdp=" + imgAdd.toString()
+        val stringRequest : StringRequest = object : StringRequest(Method.POST , url , com.android.volley.Response.Listener{
+                response ->
+            val generalResponse: GeneralResponse = Gson().fromJson(response, GeneralResponse::class.java)
+            context?.let { Utility.showAlert(it, "Add",generalResponse.message) }
+        },com.android.volley.Response.ErrorListener{
+                error -> Log.i("my log",error.message.toString())
+        }) {
+            override fun getBody(): ByteArray {
+                return requestBody.toByteArray(Charset.defaultCharset())
+            }
+        }
+        queue.add(stringRequest)
+    }
+
+    /*@SuppressLint("CutPasteId")
     private fun addEvent() {
         val apiInterface = EventApi.create()
 
@@ -170,14 +197,14 @@ class Add : Fragment(fragment_add) {
                 ).show()
             }
         })
-        /*} else {
+        *//*} else {
             Toast.makeText(
                 activity,
                 "You must fill all the fields",
                 Toast.LENGTH_LONG
             ).show()
-        }*/
-    }
+        }*//*
+    }*/
 }
 
 

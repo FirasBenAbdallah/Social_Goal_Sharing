@@ -43,6 +43,10 @@
     <string name="start">Event starts</string>
     <string name="nav_open">nav_open</string>
     <string name="nav_close">nav_close</string>
+    <string name="phone_number">Phone number</string>
+    <string name="description">Description</string>
+    <string name="ajouter_un_lieu">Ajouter un lieu</string>
+    <string name="nom_de_l_evenement">Nom de l\'evenement</string>
 
 
 </resources>

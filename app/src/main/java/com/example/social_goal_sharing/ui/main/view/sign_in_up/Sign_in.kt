@@ -50,7 +50,7 @@ class Sign_in : AppCompatActivity() {
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 }else{
-                    Utility.showAlert(this,"Error",loginModel.message)
+                    Utility.showAlert1(this,"Error",loginModel.message)
                 }
             },com.android.volley.Response.ErrorListener{
                     error -> Log.i("my log",error.toString())

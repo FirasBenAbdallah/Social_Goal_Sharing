@@ -77,7 +77,7 @@ class Sign_up : AppCompatActivity() {
             val stringRequest : StringRequest = object : StringRequest(Method.POST , url , com.android.volley.Response.Listener{
                 response ->
                 val generalResponse: GeneralResponse = Gson().fromJson(response, GeneralResponse::class.java)
-                Utility.showAlert(this, "SignUp",generalResponse.message)
+                Utility.showAlert1(this, "SignUp",generalResponse.message)
             },com.android.volley.Response.ErrorListener{
                 error -> Log.i("my log",error.message.toString())
             }) {

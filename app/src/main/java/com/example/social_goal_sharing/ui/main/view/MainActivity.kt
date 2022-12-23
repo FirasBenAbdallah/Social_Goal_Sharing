@@ -1,6 +1,8 @@
 package com.example.social_goal_sharing.ui.main.view
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -82,18 +84,37 @@ class MainActivity : AppCompatActivity() {
         getData()
     }
 
+    fun showAlert(
+        context: Context, title: String = "",
+        message: String = "", onYes: Runnable? = null, onNo: Runnable? = null
+    ) {
+        val alertDialogBuilder = AlertDialog.Builder(context)
+        alertDialogBuilder.setTitle(title)
+        alertDialogBuilder.setMessage(message)
+        alertDialogBuilder.setPositiveButton(android.R.string.yes) { dialog, which ->
+            onYes?.apply {
+
+            }
+        }
+        alertDialogBuilder.setNegativeButton(android.R.string.no) { dialog, which ->
+            onNo?.run()
+        }
+        alertDialogBuilder.show()
+    }
+
     fun doLogout() {
         val queue = Volley.newRequestQueue(this)
         val url = Utility.apiUrl + "/logout"
-        val stringRequest : StringRequest = object : StringRequest(Method.POST, url,Response.Listener { response ->
+        Utility.showAlert(this,"Logout", "Are you sure you want to logout?", onYes = {
+        val stringRequest : StringRequest = object : StringRequest(Method.POST, url,Response.Listener {
+                response ->
             val generalResponse: GeneralResponse = Gson().fromJson(response, GeneralResponse::class.java)
-            Utility.showAlert(this,"Logout",generalResponse.message, Runnable {
                 if (generalResponse.status == "success"){
                     sharedPreference.removeAccessToken(this)
                     startActivity(Intent(this, Sign_in::class.java))
                     finish()
                 }
-            })
+
         },Response.ErrorListener {
 
         }){
@@ -104,6 +125,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         queue.add(stringRequest)
+        }, onNo = null)
     }
 
     fun getData(){
@@ -182,7 +204,7 @@ class MainActivity : AppCompatActivity() {
                 Response.Listener {
                     response ->
                     val  generalResponse : GeneralResponse = Gson().fromJson(response, GeneralResponse::class.java)
-                    Utility.showAlert(this,"Save contacts", generalResponse.message)
+                    Utility.showAlert1(this,"Save contacts", generalResponse.message)
                 },Response.ErrorListener { error ->
 
             }

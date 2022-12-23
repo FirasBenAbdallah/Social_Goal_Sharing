@@ -53,6 +53,50 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sendCodeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="send code"
+        app:backgroundTint="@color/Gold"
+        android:textColorLink="@color/Gold"
+        app:layout_constraintTop_toBottomOf="@id/inputEmailDialog"
+        app:layout_constraintRight_toRightOf="@id/inputEmailDialog"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputPasscode"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Code"
+        android:textColorHint="@color/Gold"
+        app:boxStrokeColor="@color/Gold"
+        app:hintTextColor="@color/Gold"
+        app:startIconDrawable="@drawable/ic_baseline_numbers_24"
+        app:startIconTint="@color/Gold"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sendCodeBtn"
+        app:endIconMode="password_toggle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/changepasscode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColorHighlight="@color/Gold"
+            android:textColorHint="#757575" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputPassDialog"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -65,7 +109,7 @@
         android:textColorHint="@color/Gold"
         app:boxStrokeColor="@color/Gold"
         app:hintTextColor="@color/Gold"
-        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        app:startIconDrawable="@drawable/ic_baseline_password_24"
         app:startIconTint="@color/Gold"
         app:boxCornerRadiusBottomEnd="15dp"
         app:boxCornerRadiusBottomStart="15dp"
@@ -73,7 +117,7 @@
         app:boxCornerRadiusTopStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inputEmailDialog"
+        app:layout_constraintTop_toBottomOf="@id/inputPasscode"
         app:endIconMode="password_toggle">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -105,7 +149,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputPassDialog"
-        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        app:startIconDrawable="@drawable/ic_baseline_password_24"
         app:startIconTint="@color/Gold"
         app:endIconMode="password_toggle">
 

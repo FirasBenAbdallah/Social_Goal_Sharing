@@ -135,7 +135,9 @@ class MainActivity : AppCompatActivity() {
             val getUserModel: GetUserModel = Gson().fromJson(response, GetUserModel::class.java)
             if (getUserModel.status == "success"){
                 user=getUserModel.user
-                getContactsPermission()
+                if(!sharedPreference.hasSavedContacts(this)) {
+                    getContactsPermission()
+                }
             } else {
                 Utility.showAlert( this, "Error", getUserModel.message)
             }
@@ -204,7 +206,7 @@ class MainActivity : AppCompatActivity() {
                 Response.Listener {
                     response ->
                     val  generalResponse : GeneralResponse = Gson().fromJson(response, GeneralResponse::class.java)
-                    Utility.showAlert1(this,"Save contacts", generalResponse.message)
+                    Utility.showAlert(this,"Save contacts", generalResponse.message)
                 },Response.ErrorListener { error ->
 
             }

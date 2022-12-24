@@ -6,6 +6,14 @@ import android.content.SharedPreferences
 class SharedPreference {
     private val fileName: String="SHARED_FILENAME"
 
+    fun hasSavedContacts(context: Context): Boolean {
+    val preferences: SharedPreferences =
+
+    context.getSharedPreferences(fileName, Context.MODE_PRIVATE)
+
+        return preferences.getBoolean("contactsSaved", false)
+    }
+
     fun removeAccessToken(context: Context){
         val preference: SharedPreferences =context.getSharedPreferences(fileName, Context.MODE_PRIVATE)
         preference.edit().remove("accessToken").apply()

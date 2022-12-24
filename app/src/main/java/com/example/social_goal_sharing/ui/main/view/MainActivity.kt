@@ -1,8 +1,6 @@
 package com.example.social_goal_sharing.ui.main.view
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -18,6 +16,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.databinding.ActivityMainBinding
+import com.example.social_goal_sharing.ui.main.view.sign_in_up.PREF_NAME
 import com.example.social_goal_sharing.ui.main.view.sign_in_up.Sign_in
 import com.example.social_goal_sharing.ui.main.view.toolbar_fragments.*
 import com.example.social_goal_sharing.ui.models.GeneralResponse
@@ -84,24 +83,7 @@ class MainActivity : AppCompatActivity() {
         getData()
     }
 
-    fun showAlert(
-        context: Context, title: String = "",
-        message: String = "", onYes: Runnable? = null, onNo: Runnable? = null
-    ) {
-        val alertDialogBuilder = AlertDialog.Builder(context)
-        alertDialogBuilder.setTitle(title)
-        alertDialogBuilder.setMessage(message)
-        alertDialogBuilder.setPositiveButton(android.R.string.yes) { dialog, which ->
-            onYes?.apply {
-
-            }
-        }
-        alertDialogBuilder.setNegativeButton(android.R.string.no) { dialog, which ->
-            onNo?.run()
-        }
-        alertDialogBuilder.show()
-    }
-
+    @SuppressLint("SuspiciousIndentation")
     fun doLogout() {
         val queue = Volley.newRequestQueue(this)
         val url = Utility.apiUrl + "/logout"
@@ -110,6 +92,7 @@ class MainActivity : AppCompatActivity() {
                 response ->
             val generalResponse: GeneralResponse = Gson().fromJson(response, GeneralResponse::class.java)
                 if (generalResponse.status == "success"){
+                    getSharedPreferences(PREF_NAME, MODE_PRIVATE).edit().clear().apply()
                     sharedPreference.removeAccessToken(this)
                     startActivity(Intent(this, Sign_in::class.java))
                     finish()

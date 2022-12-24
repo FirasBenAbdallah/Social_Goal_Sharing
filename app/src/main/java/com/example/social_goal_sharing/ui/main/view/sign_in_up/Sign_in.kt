@@ -1,8 +1,11 @@
 package com.example.social_goal_sharing.ui.main.view.sign_in_up
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.provider.Telephony.Carriers.PASSWORD
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -18,9 +21,13 @@ import com.google.gson.Gson
 import java.net.URLEncoder
 import java.nio.charset.Charset
 
+const val PREF_NAME = "LOGIN_PREF_LOL"
+const val LOGIN = "LOGIN"
+
 class Sign_in : AppCompatActivity() {
 
-
+    lateinit var sharedPreferences: SharedPreferences
+    lateinit var cbRememberMe: CheckBox
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,12 +35,19 @@ class Sign_in : AppCompatActivity() {
         setContentView(R.layout.activity_sign_in)
 
         title="Login"
+        cbRememberMe = findViewById(R.id.rememberMeCB)
 
         val phone = findViewById<TextInputEditText>(R.id.phone)
         val password = findViewById<TextInputEditText>(R.id.password)
         val textviewsignup = findViewById<TextView>(R.id.textViewSignUp)
         val forgotpassword = findViewById<TextView>(R.id.forgotPassword)
         val btnlogin = findViewById<Button>(R.id.btnlogin)
+
+        sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+
+        if (sharedPreferences.getString(LOGIN, "")!!.isNotEmpty()){
+            startActivity(Intent(this, MainActivity::class.java))
+        }
 
         btnlogin.setOnClickListener(){
             val queue = Volley.newRequestQueue(this)
@@ -44,8 +58,16 @@ class Sign_in : AppCompatActivity() {
                     response -> Log.i("my log",response)
                 val loginModel: LoginModel = Gson().fromJson(response, LoginModel::class.java)
                 if (loginModel.status == "success"){
-                    val preference:SharedPreference = SharedPreference()
+                    val preference = SharedPreference()
                     preference.setAccessToken(this,loginModel.accessToken)
+
+                    if (cbRememberMe.isChecked){
+                        sharedPreferences.edit().apply {
+                            putString(LOGIN, phone.text.toString())
+                            putString(PASSWORD, password.text.toString())
+                            apply()
+                        }
+                    }
 
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()

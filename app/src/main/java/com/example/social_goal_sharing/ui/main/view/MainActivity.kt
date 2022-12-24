@@ -1,8 +1,6 @@
 package com.example.social_goal_sharing.ui.main.view
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -18,6 +16,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.databinding.ActivityMainBinding
+import com.example.social_goal_sharing.ui.main.view.sign_in_up.PREF_NAME
 import com.example.social_goal_sharing.ui.main.view.sign_in_up.Sign_in
 import com.example.social_goal_sharing.ui.main.view.toolbar_fragments.*
 import com.example.social_goal_sharing.ui.models.GeneralResponse
@@ -93,6 +92,7 @@ class MainActivity : AppCompatActivity() {
                 response ->
             val generalResponse: GeneralResponse = Gson().fromJson(response, GeneralResponse::class.java)
                 if (generalResponse.status == "success"){
+                    getSharedPreferences(PREF_NAME, MODE_PRIVATE).edit().clear().apply()
                     sharedPreference.removeAccessToken(this)
                     startActivity(Intent(this, Sign_in::class.java))
                     finish()

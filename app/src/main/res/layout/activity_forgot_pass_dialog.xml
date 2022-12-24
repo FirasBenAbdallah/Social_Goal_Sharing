@@ -130,7 +130,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+    <!--<com.google.android.material.textfield.TextInputLayout
         android:id="@+id/PasswordConfDialog"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
@@ -160,7 +160,7 @@
             android:inputType="textPassword"
             android:textColorHighlight="@color/Gold"
             tools:ignore="TouchTargetSizeCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>-->
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/changepassBtn"
@@ -170,7 +170,116 @@
         android:text="@string/confirm"
         app:backgroundTint="@color/Gold"
         android:textColorLink="@color/Gold"
-        app:layout_constraintTop_toBottomOf="@id/PasswordConfDialog"
-        app:layout_constraintRight_toRightOf="@id/PasswordConfDialog"/>
+        app:layout_constraintTop_toBottomOf="@id/inputPassDialog"
+        app:layout_constraintRight_toRightOf="@id/inputPassDialog"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<LinearLayout
+android:id="@+id/userPassLL"
+android:layout_width="350dp"
+android:layout_height="wrap_content"
+app:layout_constraintTop_toBottomOf="@+id/inputEmailDialog"
+app:layout_constraintLeft_toLeftOf="@+id/inputEmailDialog"
+app:layout_constraintRight_toRightOf="@+id/inputEmailDialog"
+android:gravity="center_horizontal"
+android:orientation="horizontal">
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/inputEmailDialog1"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    android:layout_width="165dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginEnd="16dp"
+    android:hint="User"
+    android:textColorHint="@color/Gold"
+    app:boxStrokeColor="@color/Gold"
+    app:hintTextColor="@color/Gold"
+    app:startIconDrawable="@drawable/ic_baseline_email_24"
+    app:startIconTint="@color/Gold"
+    app:boxCornerRadiusBottomEnd="15dp"
+    app:boxCornerRadiusBottomStart="15dp"
+    app:boxCornerRadiusTopEnd="15dp"
+    app:boxCornerRadiusTopStart="15dp">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/changeEmail1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:textColorHighlight="@color/Gold"
+        android:textColorHint="#757575" />
+
+</com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/inputEmailDialog2"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    android:layout_width="165dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginEnd="16dp"
+    android:hint="Pass"
+    android:textColorHint="@color/Gold"
+    app:boxStrokeColor="@color/Gold"
+    app:hintTextColor="@color/Gold"
+    app:startIconDrawable="@drawable/ic_baseline_email_24"
+    app:startIconTint="@color/Gold"
+    app:boxCornerRadiusBottomEnd="15dp"
+    app:boxCornerRadiusBottomStart="15dp"
+    app:boxCornerRadiusTopEnd="15dp"
+    app:boxCornerRadiusTopStart="15dp">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/changeEmail2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:textColorHighlight="@color/Gold"
+        android:textColorHint="#757575" />
+
+</com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>-->
+
+
+    <!--<com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:text="@string/link_text"
+            app:layout_constraintBottom_toTopOf="@+id/textViewDialog"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />-->

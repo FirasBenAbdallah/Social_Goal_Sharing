@@ -84,24 +84,7 @@ class MainActivity : AppCompatActivity() {
         getData()
     }
 
-    fun showAlert(
-        context: Context, title: String = "",
-        message: String = "", onYes: Runnable? = null, onNo: Runnable? = null
-    ) {
-        val alertDialogBuilder = AlertDialog.Builder(context)
-        alertDialogBuilder.setTitle(title)
-        alertDialogBuilder.setMessage(message)
-        alertDialogBuilder.setPositiveButton(android.R.string.yes) { dialog, which ->
-            onYes?.apply {
-
-            }
-        }
-        alertDialogBuilder.setNegativeButton(android.R.string.no) { dialog, which ->
-            onNo?.run()
-        }
-        alertDialogBuilder.show()
-    }
-
+    @SuppressLint("SuspiciousIndentation")
     fun doLogout() {
         val queue = Volley.newRequestQueue(this)
         val url = Utility.apiUrl + "/logout"

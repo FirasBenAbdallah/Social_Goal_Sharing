@@ -8,44 +8,21 @@
     tools:context=".ui.main.view.toolbar_fragments.Discussion">
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/rechDisc"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
-        android:hint="Search"
-        android:textColorHint="@color/Gold"
-        app:startIconTint="@color/Gold"
-        app:boxCornerRadiusBottomEnd="10dp"
-        app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp"
-        app:boxCornerRadiusBottomStart="10dp"
-        app:startIconDrawable="@drawable/icons8_search_24"
+        android:background="@color/Gold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/rechDiscEt"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabTextColor="@color/white" />
+    <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:textColorHighlight="@color/Gold"
-        android:textColorHint="@color/Gold" />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:id="@+id/viewP"
+        app:layout_constraintTop_toBottomOf="@id/tabLay"
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleDisc"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rechDisc"
-        tools:listitem="@layout/chat_user_items"
-        tools:itemCount="10"
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

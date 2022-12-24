@@ -20,4 +20,14 @@ object Utility {
         }
         alertDialogBuilder.show()
     }
+
+    fun showAlert1(
+        context: Context, title: String = "",
+        message: String = ""
+    ) {
+        val alertDialogBuilder = AlertDialog.Builder(context)
+        alertDialogBuilder.setTitle(title)
+        alertDialogBuilder.setMessage(message)
+        alertDialogBuilder.show()
+    }
 }

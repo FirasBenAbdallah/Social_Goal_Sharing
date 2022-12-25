@@ -190,6 +190,9 @@ class MainActivity : AppCompatActivity() {
                     response ->
                     val  generalResponse : GeneralResponse = Gson().fromJson(response, GeneralResponse::class.java)
                     Utility.showAlert(this,"Save contacts", generalResponse.message)
+
+                    sharedPreference.setContactsSave(this)
+
                 },Response.ErrorListener { error ->
 
             }

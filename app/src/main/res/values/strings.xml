@@ -48,6 +48,7 @@
     <string name="ajouter_un_lieu">Ajouter un lieu</string>
     <string name="nom_de_l_evenement">Nom de l\'evenement</string>
     <string name="link_text">https://mailtrap.io/register/signup?ref=header</string>
+    <string name="chat">chat</string>
 
 
 </resources>

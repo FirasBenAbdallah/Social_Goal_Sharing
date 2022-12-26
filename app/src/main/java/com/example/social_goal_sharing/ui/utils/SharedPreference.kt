@@ -14,7 +14,6 @@ class SharedPreference {
 
     fun setContactsSave(context: Context) {
     val preferences: SharedPreferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE)
-
         preferences.edit().putBoolean("contactsSaved", true).apply()
     }
 

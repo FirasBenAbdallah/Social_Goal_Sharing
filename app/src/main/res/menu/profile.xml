@@ -16,12 +16,6 @@
         app:showAsAction="always"
         />
     <item
-        android:id="@+id/messageIcon"
-        android:icon="@drawable/icons8_speech_bubble_24"
-        android:title="@string/message"
-        app:showAsAction="always"
-        />
-    <item
         android:id="@+id/plusIcon"
         android:icon="@drawable/icons8_plus_24"
         android:title="@string/Add"

@@ -58,6 +58,10 @@ class MainActivity : AppCompatActivity() {
             doLogout()
            // finishAffinity()
         }
+        val btnmsg = findViewById<ImageButton>(R.id.messageIcon)
+        btnmsg.setOnClickListener(){
+            startActivity(Intent(this, Chat::class.java))
+        }
         binding.bottomnavigationtoolbar1.setOnItemSelectedListener {
             when(it.itemId) {
                 R.id.logoutIcon -> {
@@ -75,7 +79,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.profilIcon -> replaceFragment(Profile())
                 R.id.plusIcon -> replaceFragment(Add())
                 R.id.searchIcon -> replaceFragment(LookFor())
-                R.id.messageIcon -> replaceFragment(Discussion())
                 else -> {}
             }
             true

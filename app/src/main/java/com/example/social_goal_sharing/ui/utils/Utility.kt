@@ -1,10 +1,42 @@
 package com.example.social_goal_sharing.ui.utils
 
 import android.app.AlertDialog
+import android.content.ContentResolver
 import android.content.Context
+import android.database.Cursor
+import android.net.Uri
+import android.provider.OpenableColumns
+import android.webkit.MimeTypeMap
+import java.io.File
 
 object Utility {
-    val apiUrl: String = "http://192.168.1.9:3000"
+    val apiUrl: String = "http://192.168.1.11:3000"
+
+
+    fun getExtension (contentResolver: ContentResolver, uri: Uri): String {
+        if (uri.scheme == ContentResolver.SCHEME_CONTENT) {
+            val mime = MimeTypeMap.getSingleton()
+            return mime.getExtensionFromMimeType(contentResolver.getType(uri)).toString()
+        } else {
+            return MimeTypeMap.getFileExtensionFromUrl(
+                Uri.fromFile(
+                    File(uri.path)
+                ).toString()
+            )
+        }
+    }
+
+    fun getFileName(contentResolver: ContentResolver, uri: Uri):String{
+     val cursor: Cursor? = contentResolver.query(uri, null, null,null,null )
+     val nameIndex = cursor?.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+     cursor?.moveToFirst()
+     val name = nameIndex?.let {
+         cursor.getString(it)
+     }
+        cursor?.close()
+        return name.toString()
+    }
+
     fun showAlert(
         context: Context, title: String = "",
         message: String = "", onYes: Runnable? = null, onNo: Runnable? = null

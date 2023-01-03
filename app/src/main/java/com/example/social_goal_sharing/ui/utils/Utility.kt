@@ -10,7 +10,7 @@ import android.webkit.MimeTypeMap
 import java.io.File
 
 object Utility {
-    val apiUrl: String = "http://192.168.1.11:3000"
+    val apiUrl: String = "http://192.168.1.105:3000"
 
 
     fun getExtension (contentResolver: ContentResolver, uri: Uri): String {

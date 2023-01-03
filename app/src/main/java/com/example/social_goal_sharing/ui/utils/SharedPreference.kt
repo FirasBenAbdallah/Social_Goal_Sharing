@@ -1,5 +1,6 @@
 package com.example.social_goal_sharing.ui.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 
@@ -12,6 +13,7 @@ class SharedPreference {
         return preferences.getBoolean("contactsSaved", false)
     }
 
+    @SuppressLint("SuspiciousIndentation")
     fun setContactsSave(context: Context) {
     val preferences: SharedPreferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE)
         preferences.edit().putBoolean("contactsSaved", true).apply()

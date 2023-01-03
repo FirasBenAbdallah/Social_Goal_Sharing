@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:text="Message"
             android:id="@+id/message"
+            android:textColor="@color/black"
             android:layout_below="@+id/sender"/>
         <ImageView
             android:layout_width="match_parent"

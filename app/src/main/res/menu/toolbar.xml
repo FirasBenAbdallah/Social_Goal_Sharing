@@ -5,14 +5,12 @@
 
     <item
         android:id="@+id/logoutIcon"
-        android:icon="@drawable/icons8_logout_24"
-        android:title="@string/home"
-        app:showAsAction="always"
+        android:title="@string/Log_out"
+        app:showAsAction="never"
         />
     <item
-        android:id="@+id/dehazeIcon"
-        android:icon="@drawable/ic_baseline_dehaze_24"
-        android:title="@string/home"
+        android:id="@+id/settings"
+        android:title="@string/Settings"
         app:showAsAction="never"
         />
 

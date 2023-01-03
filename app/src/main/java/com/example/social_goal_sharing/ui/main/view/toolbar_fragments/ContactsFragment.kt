@@ -119,8 +119,9 @@ class ContactsFragment: Fragment(), RVInterface {
         if (contacts.size > position){
             val user: User = contacts[position]
             val intent: Intent = Intent(context, TalkActivity::class.java)
-                    intent.putExtra( "phone", user.phone)
-            startActivity (intent)
+            intent.putExtra("name", user.name)
+            intent.putExtra("phone", user.phone)
+            startActivity(intent)
         }
     }
 }

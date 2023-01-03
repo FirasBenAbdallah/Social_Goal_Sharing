@@ -1,5 +1,6 @@
 package com.example.social_goal_sharing.ui.main.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ class TalksAdapter (
 
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
       val view : View =  LayoutInflater.from(parent.context).inflate(R.layout.single_message,parent, false)
         return ViewHolder(view)

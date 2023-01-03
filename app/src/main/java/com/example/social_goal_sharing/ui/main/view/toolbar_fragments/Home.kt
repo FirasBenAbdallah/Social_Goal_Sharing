@@ -1,13 +1,22 @@
 package com.example.social_goal_sharing.ui.main.view.toolbar_fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.social_goal_sharing.R
+import com.example.social_goal_sharing.ui.models.GeneralResponse
+import com.example.social_goal_sharing.ui.models.GetUserModel
+import com.example.social_goal_sharing.ui.utils.SharedPreference
+import com.example.social_goal_sharing.ui.utils.Utility
+import com.google.gson.Gson
 import recycler.Acc
 import recycler.HomeAdapter
 
@@ -46,4 +55,5 @@ lateinit var homeitemsList : ArrayList<Acc>*/
         r.adapter = HomeAdapter(list)
         r.layoutManager = LinearLayoutManager(v.context)
     }
+
 }

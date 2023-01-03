@@ -80,6 +80,8 @@ class TalkActivity : AppCompatActivity(), AttachmentInterface {
             phone = intent.getStringExtra( "phone").toString()
             phone = URLEncoder.encode(phone, "UTF-8")
 
+            getData()
+
             title = intent.getStringExtra("name").toString()
 
             btnSend.setOnClickListener{
@@ -93,7 +95,6 @@ class TalkActivity : AppCompatActivity(), AttachmentInterface {
                 val stringRequest : StringRequest = object : StringRequest(
                     Method.POST, url,
                     Response.Listener { response ->
-
 
                         btnSend.isEnabled = true
                         message.setText("")
@@ -162,7 +163,7 @@ class TalkActivity : AppCompatActivity(), AttachmentInterface {
         val stringRequest: StringRequest = object : StringRequest(
             Method.POST, url,
             Response.Listener { response ->
-               val fetchMessagesModel: FetchMessagesModel = Gson().fromJson(response,FetchMessagesModel::class.java)
+               val fetchMessagesModel: FetchMessagesModel = Gson().fromJson(response, FetchMessagesModel::class.java)
                 if (fetchMessagesModel.status=="success"){
                     messages = fetchMessagesModel.data
                     adapter.setData(messages)

@@ -6,15 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.social_goal_sharing.R
 import com.example.social_goal_sharing.ui.models.GeneralResponse
-import com.example.social_goal_sharing.ui.models.GetUserModel
-import com.example.social_goal_sharing.ui.utils.SharedPreference
 import com.example.social_goal_sharing.ui.utils.Utility
 import com.google.gson.Gson
 import recycler.Acc
@@ -54,6 +52,24 @@ lateinit var homeitemsList : ArrayList<Acc>*/
         )
         r.adapter = HomeAdapter(list)
         r.layoutManager = LinearLayoutManager(v.context)
+        val home = v.findViewById<Button>(R.id.btnhome)
+        home.setOnClickListener(){
+            getEvent()
+        }
     }
+    private fun getEvent() {
+        val queue = Volley.newRequestQueue(context)
+        val url : String = Utility.apiUrl + "/getevent"
+        val stringRequest : StringRequest = object : StringRequest(Method.GET , url , com.android.volley.Response.Listener{
+                response ->
+            val generalResponse: GeneralResponse = Gson().fromJson(response, GeneralResponse::class.java)
+            val json =generalResponse.message
+            context?.let { Utility.showAlert1(it, "Get","${generalResponse.status} : ${json} ") }
 
+        },com.android.volley.Response.ErrorListener{
+                error -> Log.i("my log",error.message.toString())
+        }) {
+        }
+        queue.add(stringRequest)
+    }
 }

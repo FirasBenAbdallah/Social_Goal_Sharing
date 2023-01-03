@@ -8,13 +8,23 @@
     android:background="@color/gris1"
     tools:context=".ui.main.view.toolbar_fragments.Home">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnhome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="140dp"
+        android:layout_marginEnd="140dp"
+        android:text="Home"/>
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleHome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recycleHome"
-        tools:listitem="@layout/home_items"
-        tools:itemCount="2"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        tools:itemCount="2"
+        tools:listitem="@layout/home_items" />
 
 </RelativeLayout>

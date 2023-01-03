@@ -143,66 +143,6 @@ class Add : Fragment(fragment_add) {
         }
         queue.add(stringRequest)
     }
-
-    /*@SuppressLint("CutPasteId")
-    private fun addEvent() {
-        val apiInterface = EventApi.create()
-
-        val eventNameSt = eventName.text.toString()
-        val eventAddressSt = eventAddress.text.toString()
-        val eventStartSt = eventStart.text.toString()
-        val eventEndSt = eventEnd.text.toString()
-        val eventDescSt = eventDesc.text.toString()
-
-        val map = HashMap<String, String>()
-        map["eventname"] = eventNameSt
-        map["eventaddress"] = eventAddressSt
-        map["eventstart"] = eventStartSt
-        map["eventend"] = eventEndSt
-        map["eventdesc"] = eventDescSt
-
-//        if (eventNameSt.isNotEmpty()
-//            && eventAddressSt.isNotEmpty()
-//            && eventStartSt.isNotEmpty()
-//            && eventEndSt.isNotEmpty()
-//            && eventDescSt.isNotEmpty()) {
-        apiInterface.executeEventAdd(map).enqueue(object : Callback<Void> {
-
-            override fun onResponse(
-                call: Call<Void>, response:
-                Response<Void>
-            ) {
-                if (response.code() == 201) {
-                    Toast.makeText(
-                        activity,
-                        "Event added successfully",
-                        Toast.LENGTH_LONG
-                    ).show()
-                } else if (response.code() == 400) {
-                    Toast.makeText(
-                        activity,
-                        "Already registered",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
-
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Toast.makeText(
-                    activity,
-                    t.message,
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-        })
-        *//*} else {
-            Toast.makeText(
-                activity,
-                "You must fill all the fields",
-                Toast.LENGTH_LONG
-            ).show()
-        }*//*
-    }*/
 }
 
 

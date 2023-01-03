@@ -47,6 +47,7 @@ class Sign_in : AppCompatActivity() {
 
         if (sharedPreferences.getString(LOGIN, "")!!.isNotEmpty()){
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
 
         btnlogin.setOnClickListener(){
@@ -89,13 +90,6 @@ class Sign_in : AppCompatActivity() {
         }
 
         forgotpassword.setOnClickListener(){
-            /*val view: View = getLayoutInflater().inflate(R.layout.activity_forgot_pass_dialog, null)
-            val dialogBuilder = MaterialAlertDialogBuilder(this)
-            if (findViewById<TextInputEditText>(R.id.inputEmailET).text.toString().isNotEmpty()){
-                dialogBuilder
-                    .setView(view)
-                    .show()
-            }*/
             startActivity(Intent(this, ForgotPassDialog::class.java))
         }
     }

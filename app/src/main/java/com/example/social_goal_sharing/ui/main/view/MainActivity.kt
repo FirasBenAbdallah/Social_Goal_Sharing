@@ -6,9 +6,6 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -231,20 +228,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater:MenuInflater = menuInflater
-        inflater.inflate(R.menu.toolbar, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
-            R.id.logoutIcon -> {
-                doLogout()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }*/
 }
